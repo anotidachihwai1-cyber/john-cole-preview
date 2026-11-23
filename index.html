@@ -12,8 +12,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Space Grotesk'
 h1,h2,h3,.an{font-family:'Anton',Impact,'Arial Narrow',sans-serif;text-transform:uppercase;font-weight:400;margin:0;line-height:.95}
 a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 .bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
-.bg i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.38;animation:fl 18s ease-in-out infinite alternate}
-.bg i:nth-child(1){background:var(--pink);left:-20%;top:-20%}.bg i:nth-child(2){background:var(--violet);right:-25%;top:10%;animation-delay:-6s}.bg i:nth-child(3){background:var(--cyan);left:20%;bottom:-35%;animation-delay:-12s;opacity:.25}
+.bg i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;background:radial-gradient(circle,var(--k),transparent 65%);opacity:.5;will-change:transform;animation:fl 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){--k:var(--pink);left:-20%;top:-20%}.bg i:nth-child(2){--k:var(--violet);right:-25%;top:10%;animation-delay:-6s}.bg i:nth-child(3){--k:var(--cyan);left:20%;bottom:-35%;animation-delay:-12s;opacity:.25}
 @keyframes fl{to{transform:translate(12vw,10vh) scale(1.25)}}
 .glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%),rgba(255,212,0,.16),transparent 60%)}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 60%,transparent)}
@@ -49,8 +49,8 @@ section{padding:11vh 5vw;position:relative}
 .lb{color:var(--cyan);letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;margin-bottom:12px}
 h2{font-size:clamp(2.8rem,10vw,7rem);margin-bottom:30px}
 h2 em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;perspective:900px}
-.sv{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .15s,border-color .2s,box-shadow .3s;transform-style:preserve-3d}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.sv{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:26px;border-radius:22px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .18s ease-out,border-color .2s,box-shadow .3s;will-change:transform}
 .sv::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0,var(--c),transparent 60%);opacity:.35;transition:.3s}
 .sv:hover{border-color:var(--c);box-shadow:0 20px 60px -20px var(--c)}.sv:hover::before{opacity:.8}
 .sv>*{position:relative}.sv .n{font-family:'Anton',Impact,sans-serif;font-size:3.4rem;color:var(--c);line-height:1}
@@ -117,7 +117,7 @@ footer{padding:24px 5vw;color:var(--muted);font-size:.8rem;text-align:center}
 <div class="reel rv"><video id="rv" controls playsinline></video><button class="play" id="pl">▶</button><div class="ph" id="rp">Showreel video goes here</div></div></section>
 <section><div class="lb rv">At the weddings &amp; events</div><h2 class="rv">The <em>moments</em></h2>
 <div class="strip rv" id="strip"></div></section>
-<section><div class="stats rv"><div><div class="an" data-n="2004" data-p="">0</div><small>Dancing since</small></div><div><div class="an" data-n="500" data-p="+">0</div><small>Weddings</small></div><div><div class="an" data-n="8" data-p="">0</div><small>Ways to book</small></div><div><div class="an" data-n="5" data-p="">0</div><small>Studio singles</small></div></div></section>
+<section><div class="stats rv"><div><div class="an" data-n="2004" data-p="">0</div><small>Dancing since</small></div><div><div class="an" data-n="500" data-p="+">0</div><small>Weddings</small></div><div><div class="an" data-n="12" data-p="">0</div><small>Ways to book</small></div><div><div class="an" data-n="5" data-p="">0</div><small>Studio singles</small></div></div></section>
 <section class="cta"><div class="lb rv">Your date is waiting</div><h2 class="rv">Let’s <em>move</em></h2><a class="pill big rv" href="#book">Book John Cole</a>
 <div class="soc rv"><a href="https://www.instagram.com/johncoleofficial" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@johncoleofficial" target="_blank" rel="noopener">TikTok</a><a href="https://www.facebook.com/JohnCole" target="_blank" rel="noopener">Facebook</a><a href="https://x.com/IamJohnCole" target="_blank" rel="noopener">X</a><a href="https://zw.linkedin.com/in/johncoleofficial" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.deezer.com/artist/6136738" target="_blank" rel="noopener">Deezer</a></div></section>
 <footer>© 2026 John Cole · Harare, Zimbabwe</footer>
@@ -131,10 +131,10 @@ footer{padding:24px 5vw;color:var(--muted);font-size:.8rem;text-align:center}
 
 <script>
 (function(){
-var WA='263719100633',EM='bookings@johncoleofficial.com';
+var WA='263713849800';
 // Drop media in here when ready: heroVideo, reel (video URLs/data URIs), photos (array of image URLs/data URIs)
 var MEDIA={heroVideo:'',reel:'',photos:[]};
-var C=['#ff2d95','#00e5ff','#c6ff00','#ff7a00','#8a3cff','#ffd400','#ff4d4d','#2effb5'];
+var C=['#ff2d95','#00e5ff','#c6ff00','#ff7a00','#8a3cff','#ffd400','#ff4d4d','#2effb5','#ff8cf0','#4d9bff','#ffa63d','#b4ff6a'];
 var S=[
 ['wedding','Wedding Choreography','Your entrance, your first dance, your whole party moving.',['Couples and wedding party routines','Grand entrances and first dances','Private or group sessions']],
 ['mc','MC &amp; Hosting','A host who owns the room and keeps the energy up.',['Weddings, corporate and ceremonies','Crowd control and big moments','High energy from first mic to last song']],
@@ -143,10 +143,14 @@ var S=[
 ['video','Music Video Choreo','Routines for artistes, shoots and viral challenges.',['Artiste and brand choreography','On-set direction','Moves people copy']],
 ['creative','Creative Direction','Visual concepts and stage looks that stand out.',['Concept to execution','Stage and screen','Artist and event branding']],
 ['brand','Brand &amp; PR','Marketing and promotion through John Cole Group.',['Brand and digital marketing','PR and consulting','Campaigns with movement']],
-['speak','Speaking &amp; Mentorship','Talks and coaching for creatives and teams.',['Creativity and entrepreneurship','Industry panels and events','Mentoring rising dancers']]];
+['speak','Speaking &amp; Mentorship','Talks and coaching for creatives and teams.',['Creativity and entrepreneurship','Industry panels and events','Mentoring rising dancers']],
+['music','Music','Songs, features and studio work from a recording artist.',['Original songs and collaborations','Songwriting and production','Features and live music sets']],
+['fitness','Zumba &amp; Fitness','Dance workouts that feel like a party.',['Zumba and dance fitness classes','Corporate wellness, clubs and groups','All fitness levels']],
+['direct','Video Direction','Music videos and visuals directed start to finish.',['Concept, shoot and direction','Music videos and brand films','Choreography built into the story']],
+['act','Acting &amp; Presenting','On screen and on air, with the energy to carry it.',['TV, film and series roles','Presenting and hosting on camera','Brand and promo features']]];
 var $=function(i){return document.getElementById(i)};
 function strip(s){return s.replace(/&amp;/g,'&')}
-function cards(){return S.map(function(s,i){return '<a class="sv tilt" href="#book-'+s[0]+'" style="--c:'+C[i]+'"><span class="go">↗</span><div class="n">0'+(i+1)+'</div><div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div></a>'}).join('')}
+function cards(){return S.map(function(s,i){return '<a class="sv tilt" href="#book-'+s[0]+'" style="--c:'+C[i]+'"><span class="go">↗</span><div class="n">'+(i<9?'0':'')+(i+1)+'</div><div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div></a>'}).join('')}
 $('hc').innerHTML=$('bc').innerHTML=cards();
 $('chips').innerHTML=S.map(function(s,i){return '<a href="#book-'+s[0]+'" style="--c:'+C[i]+'">'+s[1]+'</a>'}).join('');
 var t='';'JOHN'.split('').forEach(function(c,i){t+='<b style="animation-delay:'+(i*.08+.2)+'s">'+c+'</b>'});t+='<br>';'COLE'.split('').forEach(function(c,i){t+='<b class="o" style="animation-delay:'+(i*.08+.6)+'s">'+c+'</b>'});$('h1').innerHTML=t;
@@ -158,19 +162,19 @@ if(MEDIA.heroVideo){var h=$('hv');h.src=MEDIA.heroVideo;h.style.display='block';
 if(MEDIA.reel){$('rv').src=MEDIA.reel;$('pl').onclick=function(){$('rv').style.display='block';$('pl').style.display='none';$('rp').style.display='none';$('rv').play()}}
 $('ns').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi John, I’d like to book you. Can you help me choose a service?');
 function svc(k){var i=0;S.forEach(function(s,j){if(s[0]===k)i=j});var s=S[i],c=C[i];
-$('p-svc').innerHTML='<div class="top" style="--c:'+c+'"><a class="back" href="#book">← All services</a><div class="lb">Step 2 · 0'+(i+1)+'</div><h1 style="color:'+c+'">'+s[1]+'</h1></div><section style="padding-top:4vh;--c:'+c+'"><div class="two"><div><p style="font-size:1.4rem;margin:0">'+s[2]+'</p><ul class="bl">'+s[3].map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul></div><div class="fm"><label>Your name<input id="fn"></label><label>Phone<input id="fp" type="tel"></label><label>Event date<input id="fd" type="date"></label><label>Location<input id="fl"></label><label class="w">Tell John about it<textarea id="ft" rows="3"></textarea></label><div class="w row"><button class="pill big" id="sw">Send on WhatsApp</button><button class="pill big ghost" id="se">Send by email</button></div></div></div></section>';
-function msg(){return 'Hi John, I’d like to book: '+strip(s[1])+'\nName: '+$('fn').value+'\nPhone: '+$('fp').value+'\nDate: '+$('fd').value+'\nLocation: '+$('fl').value+'\nDetails: '+$('ft').value}
-$('sw').onclick=function(){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg()),'_blank')};
-$('se').onclick=function(){location.href='mailto:'+EM+'?subject='+encodeURIComponent('Booking: '+strip(s[1]))+'&body='+encodeURIComponent(msg())}}
+$('p-svc').innerHTML='<div class="top" style="--c:'+c+'"><a class="back" href="#book">← All services</a><div class="lb">Step 2 · '+(i<9?'0':'')+(i+1)+'</div><h1 style="color:'+c+'">'+s[1]+'</h1></div><section style="padding-top:4vh;--c:'+c+'"><div class="two"><div><p style="font-size:1.4rem;margin:0">'+s[2]+'</p><ul class="bl">'+s[3].map(function(b){return '<li>'+b+'</li>'}).join('')+'</ul></div><div class="fm" style="grid-template-columns:1fr;text-align:center"><div class="an" style="font-size:2rem;color:var(--c)">Ready?</div><p style="margin:0;color:var(--muted)">Tap below and John’s WhatsApp assistant will take your booking in a minute.</p><a class="pill big" id="sw" target="_blank" rel="noopener">Book on WhatsApp</a></div></div></section>';
+function msg(){return 'Hi, I’d like to book: '+strip(s[1])}
+$('sw').href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg());
+}
 function show(){var h=location.hash.slice(1)||'home',v='home';if(h==='book')v='book';else if(h.indexOf('book-')===0){v='svc';svc(h.slice(5))}
-['home','book','svc'].forEach(function(x){$('p-'+x).classList.toggle('on',x===v)});window.scrollTo(0,0);obs()}
+['home','book','svc'].forEach(function(x){$('p-'+x).classList.toggle('on',x===v)});var de=document.documentElement;de.style.scrollBehavior='auto';window.scrollTo(0,0);de.style.scrollBehavior='';obs()}
 var first=true,tm;function go(){if(first){first=false;show();return}var c=$('cur');c.classList.remove('on');void c.offsetWidth;c.classList.add('on');clearTimeout(tm);tm=setTimeout(show,450)}
 addEventListener('hashchange',go);
 var io=window.IntersectionObserver&&new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);e.target.querySelectorAll('[data-n]').forEach(cnt)}})},{threshold:.12});
 function cnt(el){var n=+el.dataset.n,p=el.dataset.p,st=null;function f(ts){st=st||ts;var k=Math.min((ts-st)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)))+p;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
 function obs(){document.querySelectorAll('.pg.on .rv').forEach(function(e){if(io){e.classList.remove('in');io.observe(e)}else e.classList.add('in')})}
-document.addEventListener('mousemove',function(e){var r=document.documentElement.style;r.setProperty('--mx',e.clientX+'px');r.setProperty('--my',e.clientY+'px');var t=e.target.closest&&e.target.closest('.tilt');if(t){var b=t.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;t.style.transform='rotateY('+x*14+'deg) rotateX('+-y*14+'deg) translateZ(8px)'}});
-document.addEventListener('mouseout',function(e){var t=e.target.closest&&e.target.closest('.tilt');if(t)t.style.transform=''});
+var gl=document.querySelector('.glow'),ev,rf=0;document.addEventListener('mousemove',function(e){ev=e;if(rf)return;rf=requestAnimationFrame(function(){rf=0;gl.style.setProperty('--mx',ev.clientX+'px');gl.style.setProperty('--my',ev.clientY+'px');var t=ev.target.closest&&ev.target.closest('.tilt');if(t){var b=t.getBoundingClientRect(),x=(ev.clientX-b.left)/b.width-.5,y=(ev.clientY-b.top)/b.height-.5;t.style.transform='perspective(900px) rotateY('+x*8+'deg) rotateX('+-y*8+'deg)'}})});
+document.addEventListener('mouseout',function(e){var t=e.target.closest&&e.target.closest('.tilt');if(t&&!t.contains(e.relatedTarget))t.style.transform=''});
 go();
 })();
 </script></body></html>
